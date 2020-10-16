@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.product-container {
+    width: 100vw;
+    height: 90vh;
+
+    display: flex;
+    justify-content: center;
+}
+
+.product-container:nth-child(2n+1) {
+    background-color: lightgray;
+}
+
+.product-card {
+    width: 30vw;
+    height: 100%;
+
+    padding: 5% 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.product-image {
+    width: 50%;
+}
