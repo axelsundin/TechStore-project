@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="varukorg.css">
 
     <!-- <script src="main.js" defer></script> -->
-    <script src="varukorg.js" defer></script>
+    <!-- <script src="varukorg.js" defer></script> -->
+    <script src="/main.js" type="text/javascript" defer></script>
 
     <title>TechStore-project</title>
 </head>
@@ -24,17 +25,35 @@
             <p></p>
         </div>
         <div class="divVarukorg">
-            <p>
-                <img src="/imgs/varuvagn3.jpg" alt="#" style="height: 40px; width: auto;"> 
+        
+            <p id="counter"></p>
+            <a href="Varukorg.html">
+                <img src="/imgs/cart-icon.png" alt="#" style="height: 30px; width: auto;"> 
+            </a> 
             
-            </p>
         </div>
     </header>
 
     <div class="kundvagnH4">
-        <img src="/imgs/varuvagn3.jpg" alt="#" style="height: 48px; width:auto;">
+        <img src="/imgs/cart-icon.png" alt="#" style="height: 48px; width:auto;">
         <h4>Kundvagn</h4>
     </div>
+
+    <div id="mainVarukorg">
+
+    </div>
+
+    <div id="varukorgTotal">
+        <h5></h5>
+    </div>
+    <div class="flexContainer";>
+        <div class="divSpace"></div>
+        <button id="buttonKop" onclick="myFunction()">Slutför ditt köp</button>
+        <div class="divSpace"></div>
+    </div>
+    
+
+    <!-- 
         <div class="flexContainer">  
             <div class="flexItem">
                 <div id="produktVal"></div>
@@ -70,7 +89,7 @@
             <button id="buttonKop" onclick="myFunction()">Slutför ditt köp</button>
             <div class="divSpace"></div>
         </div>
-    </div>
-            >
+    </div> -->
+            
 </body>
 </html>

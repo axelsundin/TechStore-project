@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+#main {
+    padding-top: 5vw;
+}
+
 .product-container {
     width: 100vw;
     height: 90vh;
@@ -13,7 +17,7 @@
 }
 
 .product-container:nth-child(2n+1) {
-    background-color: lightgray;
+    background-color: #f5f5f5;
 }
 
 .product-card {
@@ -29,5 +33,6 @@
 }
 
 .product-image {
-    width: 50%;
+    height: 60%;
+    max-height: 320px;
 }
