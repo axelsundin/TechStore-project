@@ -18,24 +18,26 @@ a:active {
 
 .header {
     position: fixed;
-
     display: flex;
-    flex-direction: row;
-    height: 5vw;
+    height: 4vw;
     width: 100vw;
     padding-left: 20px;
     padding-right: 40px;
     background-color: black;
     color: white;
     font-family: Trebuchet MS;
+    font-size: 30px;
+   
 }
+
 
 .divLogo {
     display: flex;
+    justify-content: left;
+    text-align: center;
     align-items: center;
-
     width: 25%;
-    font-size: 24px;
+    
 }
 
 .divVarukorg {
@@ -44,6 +46,7 @@ a:active {
 
     width: 25%;
     justify-content: flex-end;
+    font-size: 70%;
 
 }
 
