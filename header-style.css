@@ -17,30 +17,41 @@ a:active {
 }
 
 .header {
+    position: fixed;
     display: flex;
-    flex-direction: row;
-    height: 50px;
+    height: 4vw;
     width: 100vw;
     padding-left: 20px;
     padding-right: 40px;
     background-color: black;
     color: white;
     font-family: Trebuchet MS;
+    font-size: 30px;
+   
 }
+
 
 .divLogo {
     display: flex;
-    padding-top: 10px;
+    justify-content: left;
+    text-align: center;
+    align-items: center;
     width: 25%;
-    font-size: 24px;
+    
 }
 
 .divVarukorg {
-    width: 25%;
-    padding-top: 5px;
-    justify-content: center;
-    text-align: right;
+    display: flex;
+    align-items: center;
 
+    width: 25%;
+    justify-content: flex-end;
+    font-size: 70%;
+
+}
+
+.divVarukorg #counter {
+    margin-right: 10px;
 }
 
 .divMitten {
