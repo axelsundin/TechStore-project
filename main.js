@@ -7,15 +7,15 @@ if (productsToBuy === null){
     productsToBuy = []
 }
 
-//Variabel som håller reda på antalet produkter i varukorgen. Hämtar värde från localstorage om det finns 
-//Skriver ut antalet i headern
+/**variabel som håller reda på antalet produkter i varukorgen. Hämtar värde från localstorage om det finns 
+*Skriver ut antalet i headern */
 let counter = localStorage.getItem ("counter")
 if (counter != 0) {
     document.getElementById("counter").innerHTML = counter
 } else {
     document.getElementById("counter").innerHTML = ""   
 }
-
+  
 //variabel för totalvärdet i varugkorgen
 let total = 0
 
@@ -195,3 +195,4 @@ function RemoveFromCart(indexToRemove) {
     document.getElementById("mainVarukorg").innerHTML = ""
     renderCartPage()
 }
+

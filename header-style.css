@@ -1,11 +1,11 @@
 a:link {
     text-decoration: none;
-    color: white;
+    color: #ffffff;
 }
 
 a:visited {
     text-decoration: none;
-    color: white;
+    color: #ffffff;
 }
 
 a:hover {
@@ -23,8 +23,8 @@ a:active {
     width: 100vw;
     padding-left: 20px;
     padding-right: 40px;
-    background-color: black;
-    color: white;
+    background-color: #212121;
+    color: #ffffff;
     font-family: Trebuchet MS;
     font-size: 30px;
    
