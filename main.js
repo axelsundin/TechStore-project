@@ -1,164 +1,198 @@
-/**variabel som lagrar datan fråm JSON-filen */
+//Variabel som håller JSON-datan
 let productData
 
-/**variabel som håller reda på antalet produkter i varukorgen. Hämtar värde från localstorage om det finns 
-*Skriver ut antalet i headern */
-let counter = localStorage.getItem ("counter")
-document.getElementById("counter").innerHTML = counter
-
-/**array som lagrar produkter som lagts till i varukorgen. Hämtar värde från localstorage om det finns */
+//Array som lagrar produkter som lagts till i varukorgen. Hämtar värde från localstorage om det finns
 let productsToBuy = JSON.parse(localStorage.getItem("productsToBuy"))
 if (productsToBuy === null){
     productsToBuy = []
 }
 
-/**variabler som blir knappar */
-let btnOne
-let btnTwo
-let btnThree
-let btnFour
-
-/**variabel för totalvärdet i varugkorgen */
+/**variabel som håller reda på antalet produkter i varukorgen. Hämtar värde från localstorage om det finns 
+*Skriver ut antalet i headern */
+let counter = localStorage.getItem ("counter")
+if (counter != 0) {
+    document.getElementById("counter").innerHTML = counter
+} else {
+    document.getElementById("counter").innerHTML = ""   
+}
+  
+//variabel för totalvärdet i varugkorgen
 let total = 0
 
-let deleteBtn = []
-
-/*funktion som ritar ut produkterna på startsidan */
-function listProductData() {
-
-    for (i = 0; i < productData.length; i++) {
-        document.getElementById("main").innerHTML += `
-        <div class="product-container">
-        <div class="product-card" onload="productsLoaded()">
-            <h1 class="product-title">${productData[i].title}</h1>
-            <p class="product-description">${productData[i].description}</p>
-            <img class="product-image" src="imgs/${productData[i].image}" alt="">
-            <h2 class="product-price">${productData[i].price} kr</h2>
-            <button class="btn-add-to-cart" id="btn${i}"><img src="/imgs/cart-icon.png" height="16px">Lägg till i kundvagnen</button>
-        </div>        </div>
-        `
-    }
-}
-
-/** funktion som ritar ut produkterna i varukorgen */
-    for (i = 0; i < productsToBuy.length; i++) {
-        document.getElementById("mainVarukorg").innerHTML += `
-        <div class="flexItem">
-            <div id="produktVal">
-                <img class="product-image" src="imgs/${productsToBuy[i].image}" alt="">
-                <h1 class="product-title">${productsToBuy[i].title}</h1>
-                <h2 class="product-price">${productsToBuy[i].price} kr</h2>
-            </div>
-            <div>
-                <button class="buttonDelete" id="deleteBtn0${i}"><img src="imgs/icon_trashBin.png" height="16px">Ta bort</button>  
-            </div>
-        </div>
-    `
-        total = total + productsToBuy[i].price
-        document.getElementById("varukorgTotal").innerHTML = `<h5>Totalt pris: ${total} kr</h5>`
-    }
-
-
-
-/** Hämtar datam från JSON-filen */
+//Hämtar JSON-datan och lagrar den i variabeln productData
 fetch("./products.json")
 .then(response => {
    return response.json();
 })
-/** Lagrar datan i variabeln productData. Sen kör funktion som ritar ut produkterna beroende på om man är på startsida eller varukorg */
-.then(products => { 
-    productData = products
+.then(data => {
+    productData = data
+    
     if (document.getElementById("main") === null){
-        listProductToBuy()
+        renderCartPage()
     } else {
-        listProductData() 
+        renderStartPage()
     }   
 })
 
-/** Skapar funktioner för knappar på startsida eller varukorg */
-.then(productsLoaded => {
-    /**om js inte hittar element med id main vet den att man står i varukorg och kör följande kod */
-    if (document.getElementById("main") == null){
-        /** ger id'n till "ta bort"-knapparna */
-        for (i = 0; i < productsToBuy.length; i++) {
-        /** deleteBtn[i] = document.getElementById("deleteBtn"+i) */
-        }
+function renderStartPage() {
 
-        /** tar bort produkten från varukorgen(denna funkar inte helt än) */
-        for (i = 0; i < productsToBuy.length; i++) {
-            deleteBtn[i].onclick = function(){
-                productsToBuy.splice[i]
-                localStorage.setItem("productsToBuy", JSON.stringify(productsToBuy))
-                
-                document.removeChild("mainVarukorg") =""
-                //listProductToBuy()
-            }
-        }
-        // 92 deleteBtn[i].onclick = function(){
-        // 95 document.getElementById("mainVarukorg").innerHTML =""
+    let main = document.getElementById("main")
 
-    /**om js hittar elementet main vet den att man står på startsidan, då körs följande kod */
-    } else {
-        //"lägg till i varukorg"-knappar
-        btnOne = document.getElementById("btn0")
-        btnTwo = document.getElementById("btn1")
-        btnThree = document.getElementById("btn2")
-        btnFour = document.getElementById("btn3")
+    productData.forEach((product, index) => {
 
-        /** vid klick: öka countern, skriv ut countern, lagra countern i localstorage, 
-        *lägg produkten i en array som representerar produkter i varukorgen, lagrar arrayen i localstorage */
-        btnOne.onclick = function(){
-            counter++
-            document.getElementById("counter").innerHTML = counter
-            localStorage.setItem("counter", counter)
-            productsToBuy.push(productData[0])
-            localStorage.setItem("productsToBuy", JSON.stringify(productsToBuy))
-        }
+        let productContainer = document.createElement("div")
+        productContainer.className = "product-container"
+        main.appendChild(productContainer)
+
+        let productCard = document.createElement("div")
+        productCard.className = "product-card"
+        productContainer.appendChild(productCard)
+
+        let productTitle = document.createElement("h1")
+        productTitle.className = "product-title"
+        productTitle.innerText = product.title
         
-        btnTwo.onclick = function(){
-            counter++
-            document.getElementById("counter").innerHTML = counter
-            localStorage.setItem("counter", counter)
-            productsToBuy.push(productData[1])
-            localStorage.setItem("productsToBuy", JSON.stringify(productsToBuy))
-        }
-        btnThree.onclick = function(){
-            counter++
-            document.getElementById("counter").innerHTML = counter
-            localStorage.setItem("counter", counter)
-            productsToBuy.push(productData[2])
-            localStorage.setItem("productsToBuy", JSON.stringify(productsToBuy))
-        }
-        
-        btnFour.onclick = function(){
-            counter++
-            document.getElementById("counter").innerHTML = counter
-            localStorage.setItem("counter", counter)
-            productsToBuy.push(productData[3])
-            localStorage.setItem("productsToBuy", JSON.stringify(productsToBuy))
-        }        
-    }     
-})
+        let productDescription = document.createElement("p")
+        productDescription.className = "product-description"
+        productDescription.innerText = product.description
 
-function saveproductsToBuy() {
-     mainVarukorg.innerHTML = ""
+        let productImage = document.createElement("img")
+        productImage.className = "product-image"
+        productImage.src = "assets/" + product.image
 
-let submitBtn = document.createElement("button")
-submitBtn.innerText = "Slutför ditt köp"
+        let productPrice = document.createElement("h2")
+        productPrice.className = "product-price"
+        productPrice.innerText = product.price + " kr"
 
-submitBtn.addEventListener("click", saveproductsToBuy)
+        let addButton = document.createElement("button")
+        addButton.className = "btn-add-to-cart"
+        addButton.innerText = "Lägg till i kundvagnen"
+        addButton.addEventListener("click", () => {
+            addToCart(index)
+        })
 
-mainVarukorg.append(submitBtn)
+        productCard.append(productTitle, productDescription, productImage, productPrice, addButton)
 
-printProductsToBuy()
-
+    })
 }
 
-//function printProductsToBuy() {
-    //const productToBuyList = getProductsToBuy()
-    // const productToBuyContainer = document.getElementById()
-//}
+function addToCart(indexToAdd) {
+    counter++
+    if (counter != 0) {
+        document.getElementById("counter").innerHTML = counter
+    } else {
+        document.getElementById("counter").innerHTML = ""   
+    }
+    localStorage.setItem("counter", counter)
+    productsToBuy.push(productData[indexToAdd])
+    localStorage.setItem("productsToBuy", JSON.stringify(productsToBuy))
+}
 
+function renderCartPage() {
 
+    //Bekräftelse-modalen
+    let modal = document.getElementById("checkout");
+    let checkoutButton = document.getElementById("buttonKop");
+    let span = document.getElementsByClassName("checkout-close")[0];
 
+    //Bekräfta-knappen
+    checkoutButton.onclick = function() {
+        modal.style.display = "block";
+        if (productsToBuy[0] == undefined) {
+            let checkoutText = document.getElementById("checkout-text")
+            checkoutText.innerText = "Din varukorg är tom!"
+        } else {
+            let checkoutText = document.getElementById("checkout-text")
+            checkoutText.innerText = "Köp bekräftat!"
+            productsToBuy.splice(0, productsToBuy.length)
+            counter = 0
+            total = 0
+            localStorage.clear()
+        }
+    }
+
+    //När man stänger modalen
+    span.onclick = function() {
+        modal.style.display = "none";
+        window.location.href=window.location.href
+    }
+
+    //När man klickar utanför modalen
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            window.location.href=window.location.href
+        }
+    }
+
+    let main = document.getElementById("mainVarukorg")
+
+    if (productsToBuy[0] == undefined) {
+        let emptyCart = document.createElement("h1")
+        emptyCart.className = "product-title"
+        emptyCart.innerText = "Din varukorg är tom!"
+        main.appendChild(emptyCart)
+    }
+
+    if (total == 0) {
+        document.getElementById("varukorgTotal").innerHTML = ""
+    }
+
+    productsToBuy.forEach((product, index) => {
+
+        let flexItem = document.createElement("div")
+        flexItem.className = "flexItem"
+        main.appendChild(flexItem)
+
+        let produktVal = document.createElement("div")
+        produktVal.className = "produktVal"
+        flexItem.appendChild(produktVal)
+
+        let productImage = document.createElement("img")
+        productImage.className = "product-image"
+        productImage.src = "assets/" + product.image
+
+        let productTitle = document.createElement("h1")
+        productTitle.className = "product-title"
+        productTitle.innerText = product.title
+
+        let productPrice = document.createElement("h2")
+        productPrice.className = "product-price"
+        productPrice.innerText = product.price + " kr"
+
+        let deleteButton = document.createElement("button")
+        deleteButton.className = "buttonDelete"
+        deleteButton.innerText = "Ta Bort"
+        deleteButton.addEventListener("click", () => {
+            RemoveFromCart(index)
+        })
+
+        produktVal.append(productImage, productTitle, productPrice, deleteButton)
+
+    })
+
+    for (i = 0; i < productsToBuy.length; i++) {
+        total = total + productsToBuy[i].price
+        document.getElementById("varukorgTotal").innerHTML = `<h5>Totalt pris: ${total} kr</h5>`
+    }
+    
+}
+
+function RemoveFromCart(indexToRemove) {
+    counter--
+    if (counter != 0) {
+        document.getElementById("counter").innerHTML = counter
+    } else {
+        document.getElementById("counter").innerHTML = ""   
+    }
+    localStorage.setItem("counter", counter)
+
+    productsToBuy.splice(indexToRemove, 1)
+    localStorage.setItem("productsToBuy", JSON.stringify(productsToBuy))
+
+    total = 0
+
+    document.getElementById("mainVarukorg").innerHTML = ""
+    renderCartPage()
+}
 
