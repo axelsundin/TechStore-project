@@ -1,30 +1,29 @@
-//variabel som lagrar datan fråm JSON-filen
+/**variabel som lagrar datan fråm JSON-filen */
 let productData
 
-//variabel som håller reda på antalet produkter i varukorgen. Hämtar värde från localstorage om det finns 
-//Skriver ut antalet i headern
+/**variabel som håller reda på antalet produkter i varukorgen. Hämtar värde från localstorage om det finns 
+*Skriver ut antalet i headern */
 let counter = localStorage.getItem ("counter")
 document.getElementById("counter").innerHTML = counter
 
-//array som lagrar produkter som lagts till i varukorgen. Hämtar värde från localstorage om det finns
+/**array som lagrar produkter som lagts till i varukorgen. Hämtar värde från localstorage om det finns */
 let productsToBuy = JSON.parse(localStorage.getItem("productsToBuy"))
 if (productsToBuy === null){
     productsToBuy = []
 }
 
-//variabler som blir knappar
+/**variabler som blir knappar */
 let btnOne
 let btnTwo
 let btnThree
 let btnFour
 
-//variabel för totalvärdet i varugkorgen
+/**variabel för totalvärdet i varugkorgen */
 let total = 0
 
-//arary till "Ta bort"-knapparna i varukorgen
 let deleteBtn = []
 
-//funktion som ritar ut produkterna på startsidan
+/*funktion som ritar ut produkterna på startsidan */
 function listProductData() {
 
     for (i = 0; i < productData.length; i++) {
@@ -41,9 +40,7 @@ function listProductData() {
     }
 }
 
-//funktion som ritar ut produkterna i varukorgen - flyttad till varukorg.js
-function listProductToBuy() {
-
+/** funktion som ritar ut produkterna i varukorgen */
     for (i = 0; i < productsToBuy.length; i++) {
         document.getElementById("mainVarukorg").innerHTML += `
         <div class="flexItem">
@@ -53,25 +50,23 @@ function listProductToBuy() {
                 <h2 class="product-price">${productsToBuy[i].price} kr</h2>
             </div>
             <div>
-                <button class="buttonDelete" id="deleteBtn0${i}"><img src="imgs/icon_trashBin.png" height="16px">Ta bort</button> 
+                <button class="buttonDelete" id="deleteBtn0${i}"><img src="imgs/icon_trashBin.png" height="16px">Ta bort</button>  
             </div>
         </div>
     `
         total = total + productsToBuy[i].price
         document.getElementById("varukorgTotal").innerHTML = `<h5>Totalt pris: ${total} kr</h5>`
     }
-}
-
-//$('deleteBtn0${i}').remove();
 
 
-//Hämtar datam från JSON-filen
+
+/** Hämtar datam från JSON-filen */
 fetch("./products.json")
 .then(response => {
    return response.json();
 })
-//Lagrar datan i variabeln productData. Sen kör funktion som ritar ut produkterna beroende på om man är på startsida eller varukorg
-.then(products => {
+/** Lagrar datan i variabeln productData. Sen kör funktion som ritar ut produkterna beroende på om man är på startsida eller varukorg */
+.then(products => { 
     productData = products
     if (document.getElementById("main") === null){
         listProductToBuy()
@@ -79,16 +74,17 @@ fetch("./products.json")
         listProductData() 
     }   
 })
-//Skapar funktioner för knappar på startsida eller varukorg
+
+/** Skapar funktioner för knappar på startsida eller varukorg */
 .then(productsLoaded => {
-    //om js inte hittar element med id main vet den att man står i varukorg och kör följande kod
+    /**om js inte hittar element med id main vet den att man står i varukorg och kör följande kod */
     if (document.getElementById("main") == null){
-        //ger id'n till "ta bort"-knapparna
+        /** ger id'n till "ta bort"-knapparna */
         for (i = 0; i < productsToBuy.length; i++) {
-        //deleteBtn[i] = document.getElementById("deleteBtn"+i)
+        /** deleteBtn[i] = document.getElementById("deleteBtn"+i) */
         }
 
-        //tar bort produkten från varukorgen(denna funkar inte helt än)
+        /** tar bort produkten från varukorgen(denna funkar inte helt än) */
         for (i = 0; i < productsToBuy.length; i++) {
             deleteBtn[i].onclick = function(){
                 productsToBuy.splice[i]
@@ -98,11 +94,10 @@ fetch("./products.json")
                 //listProductToBuy()
             }
         }
-
         // 92 deleteBtn[i].onclick = function(){
         // 95 document.getElementById("mainVarukorg").innerHTML =""
 
-    //om js hittar elementet main vet den att man står på startsidan, då körs följande kod
+    /**om js hittar elementet main vet den att man står på startsidan, då körs följande kod */
     } else {
         //"lägg till i varukorg"-knappar
         btnOne = document.getElementById("btn0")
@@ -110,8 +105,8 @@ fetch("./products.json")
         btnThree = document.getElementById("btn2")
         btnFour = document.getElementById("btn3")
 
-        //vid klick: öka countern, skriv ut countern, lagra countern i localstorage, 
-        //lägg produkten i en array som representerar produkter i varukorgen, lagrar arrayen i localstorage
+        /** vid klick: öka countern, skriv ut countern, lagra countern i localstorage, 
+        *lägg produkten i en array som representerar produkter i varukorgen, lagrar arrayen i localstorage */
         btnOne.onclick = function(){
             counter++
             document.getElementById("counter").innerHTML = counter
@@ -145,4 +140,25 @@ fetch("./products.json")
     }     
 })
 
-//$("buttonDelete").remove();
+function saveproductsToBuy() {
+     mainVarukorg.innerHTML = ""
+
+let submitBtn = document.createElement("button")
+submitBtn.innerText = "Slutför ditt köp"
+
+submitBtn.addEventListener("click", saveproductsToBuy)
+
+mainVarukorg.append(submitBtn)
+
+printProductsToBuy()
+
+}
+
+//function printProductsToBuy() {
+    //const productToBuyList = getProductsToBuy()
+    // const productToBuyContainer = document.getElementById()
+//}
+
+
+
+
