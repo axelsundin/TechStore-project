@@ -28,7 +28,7 @@
     border-color: #E64E4E;
 } */
 
-#produktVal {
+.produktVal {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -52,6 +52,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    height: 60px;
     font-size: 30px;
 }
 
@@ -114,4 +115,40 @@
     font-size: 60%;
     padding: 1px;
     margin-top: 14px;
+}
+
+.checkout {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+.checkout-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    height: 30%;
+}
+
+.checkout-close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+  
+.checkout-close:hover, .checkout-close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
 }
