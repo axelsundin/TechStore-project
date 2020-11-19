@@ -122,28 +122,28 @@
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(0,0,0); 
+    background-color: #212121;    
     background-color: rgba(0,0,0,0.4); 
 }
 
 .checkout-content {
-    background-color: #fefefe;
+    background-color: #ffffff;
     margin: auto;
     padding: 20px;
-    border: 1px solid #888;
+    border: 1px solid #f5f5f5;
     width: 80%;
     height: 30%;
 }
 
 .checkout-close {
-    color: #aaaaaa;
+    color: #f5f5f5;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
   
 .checkout-close:hover, .checkout-close:focus {
-    color: #000;
+    color: #212121;
     text-decoration: none;
     cursor: pointer;
 }
