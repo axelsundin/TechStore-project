@@ -10,11 +10,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 4vh;
+    height: 5vh;
     width: 20%;
+    margin-top: 4vh;
     background-color: #5596F5;
     color: #ffffff;
-    font-size: 18px;
+    font-family: Arial narrow;
+    font-size: 14px;
     border-color:  #5596F5;
     border-radius: 8px;
 }
@@ -33,9 +35,8 @@
     align-items: center;
     font-family: Arial;
     font-size: 28px;
-    padding-top: 6vw;
-    padding-bottom: 20px;
-   
+    padding-top: 12vw;
+    padding-bottom: 20px;   
 }
 
 
@@ -60,7 +61,7 @@
     border-color: #5596F5;
     border-style: solid;
     border-width: 2px 2px 2px 2px;  
-    border-radius: 4%; 
+    border-radius: 14px; 
 }
 
 .divSpace {
@@ -106,8 +107,9 @@
     background-color: #E64E4E;
     border-color: #E64E4E;
     color: #ffffff;
-    border-radius: 10%;
-    font-size: 60%;
+    border-radius: 8px;
+    font-family: Arial narrow;
+    font-size: 12px;
     padding: 1px;
     margin-top: 14px;
 }

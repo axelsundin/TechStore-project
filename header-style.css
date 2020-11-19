@@ -16,17 +16,24 @@ a:active {
     text-decoration: underline;
 }
 
+@media screen and (max-width:800px) {
+    min-height: 40px;
+}
+
+@media screen and (max-width:570px) {
+    margin-top: 80px;
+}
+
 .header {
     position: fixed;
     display: flex;
-    height: 4vw;
+    height: 60px;
     width: 100vw;
     padding-left: 20px;
     padding-right: 40px;
     background-color: #212121;
     color: #ffffff;
     font-family: Trebuchet MS;
-    font-size: 30px;
    
 }
 
@@ -34,27 +41,28 @@ a:active {
 .divLogo {
     display: flex;
     justify-content: left;
-    text-align: center;
     align-items: center;
     width: 25%;
-    
 }
 
 .divVarukorg {
     display: flex;
     align-items: center;
-
     width: 25%;
     justify-content: flex-end;
     font-size: 70%;
+    flex-shrink: 1;
 
 }
 
 .divVarukorg #counter {
     margin-right: 10px;
+    size: 4vw;
 }
 
 .divMitten {
     display: flex;
+    float: center;
     width: 50%;
+    flex-shrink: 4;
 }
