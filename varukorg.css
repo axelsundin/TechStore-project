@@ -18,7 +18,7 @@
     font-family: Arial narrow;
     font-size: 14px;
     border-color:  #5596F5;
-    border-radius: 8px; 
+    border-radius: 8px;
 }
 
 .produktVal {
@@ -98,6 +98,10 @@
 
 
 .buttonDelete {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     height: 25px;
     width: 80px;
     background-color: #E64E4E;
