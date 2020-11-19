@@ -56,8 +56,11 @@
 }
 
 .btn-add-to-cart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 32px;
-    width: auto;
+    width: 200px;
     background-color: #5596F5;
     color: #ffffff;
     border: 1px;
