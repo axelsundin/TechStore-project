@@ -65,7 +65,7 @@ function renderStartPage() {
         productPrice.innerText = product.price + " kr"
 
         let addButton = document.createElement("button")
-        addButton.className = "btn-add-to-cart"
+        addButton.className = "btn-add-to-cart" 
         addButton.innerText = "Lägg till i kundvagnen"
         addButton.addEventListener("click", () => {
             addToCart(index)
