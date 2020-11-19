@@ -71,7 +71,11 @@ function renderStartPage() {
 
         let addButton = document.createElement("button")
         addButton.className = "btn-add-to-cart"
-        addButton.innerText = "Lägg till i kundvagnen"
+        let addToCartIcon = document.createElement("i")
+        addToCartIcon.className = "fas fa-cart-arrow-down"
+        let addButtonText = document.createElement("p")
+        addButtonText.innerHTML = "Lägg till i kundvagnen"
+        addButton.append(addToCartIcon, addButtonText)
         addButton.addEventListener("click", () => {
             addToCart(index)
         })
@@ -138,7 +142,7 @@ function renderCartPage() {
         window.location.href=window.location.href
     }
 
-    //När man klickar utanför modalen
+    //När man klickar utanför modalen (stängs)
     window.onclick = function(event) {
         if (event.target == modal) {
             modal.style.display = "none";
@@ -172,13 +176,16 @@ function renderCartPage() {
 
         let deleteButton = document.createElement("button")
         deleteButton.className = "buttonDelete"
-        deleteButton.innerText = "Ta Bort"
+        let trashIcon = document.createElement("i")
+        trashIcon.className = "far fa-trash-alt fa-sm"
+        let deleteButtonText = document.createElement("p")
+        deleteButtonText.innerHTML = "Ta Bort"
+        deleteButton.append(trashIcon, deleteButtonText)
         deleteButton.addEventListener("click", () => {
             RemoveFromCart(index)
         })
 
         produktVal.append(productImage, productTitle, productPrice, deleteButton)
-
     })
 
     //Räknar ut totalpriset och skriver ut det

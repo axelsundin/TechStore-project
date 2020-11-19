@@ -55,6 +55,7 @@
 }
 
 .btn-add-to-cart{
+    display: flex;
     height: 32px;
     width: auto;
     background-color: #5596F5;
@@ -62,4 +63,8 @@
     padding: 10px;
     border: 1px;
     border-radius: 6%;
+}
+
+i {
+    margin-right: 5px;
 }
