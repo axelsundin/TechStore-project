@@ -27,6 +27,7 @@ fetch("./products.json")
 .then(data => {
     productData = data
     
+    //Ritar ut huvudsidan eller varukorgen beroende på om man står på huvudsidan eller varukorgen 
     if (document.getElementById("main") === null){
         renderCartPage()
     } else {
@@ -34,10 +35,14 @@ fetch("./products.json")
     }   
 })
 
+//Funktion som ritar ut vad som visas på huvudsidan
 function renderStartPage() {
 
+    //Variabel för main-diven på huvudsidan
     let main = document.getElementById("main")
 
+    //Skriver ut produkterna på huvudsidan
+    //Loopas för varje element i productData-arrayen
     productData.forEach((product, index) => {
 
         let productContainer = document.createElement("div")
@@ -76,6 +81,8 @@ function renderStartPage() {
     })
 }
 
+//Funktion som kallas när man klickar på "lägg till i varukorgen"-knapparna
+//Använder index från elementet i arrayn för att veta vilken produkt som ska läggas till i productsToBuy-arrayen
 function addToCart(indexToAdd) {
     counter++
     if (counter != 0) {
@@ -88,27 +95,41 @@ function addToCart(indexToAdd) {
     localStorage.setItem("productsToBuy", JSON.stringify(productsToBuy))
 }
 
+//Funktion som ritar ut vad som visas på varukorg-sidan
 function renderCartPage() {
+
+    //Variabel för main-diven i varukorgen
+    let main = document.getElementById("mainVarukorg")
+
+    //Skriver ut "Din varukorg är tom!" om productsToBuy-arrayen är tom
+    if (productsToBuy[0] == undefined) {
+        let emptyCart = document.createElement("h1")
+        emptyCart.className = "product-title"
+        emptyCart.innerText = "Din varukorg är tom!"
+        main.appendChild(emptyCart)
+    }
 
     //Bekräftelse-modalen
     let modal = document.getElementById("checkout");
     let checkoutButton = document.getElementById("buttonKop");
     let span = document.getElementsByClassName("checkout-close")[0];
 
+    //Om varukorgen är tom ska "Slutför ditt köp"-knappen ej visas
+    if (productsToBuy[0] == undefined) {
+        checkoutButton.style.display = "none"
+    } else {
+        checkoutButton.style.display = "flex"
+    }
+
     //Bekräfta-knappen
     checkoutButton.onclick = function() {
         modal.style.display = "block";
-        if (productsToBuy[0] == undefined) {
-            let checkoutText = document.getElementById("checkout-text")
-            checkoutText.innerText = "Din varukorg är tom!"
-        } else {
-            let checkoutText = document.getElementById("checkout-text")
-            checkoutText.innerText = "Köp bekräftat!"
-            productsToBuy.splice(0, productsToBuy.length)
-            counter = 0
-            total = 0
-            localStorage.clear()
-        }
+        
+        let checkoutText = document.getElementById("checkout-text")
+        checkoutText.innerText = "Köp bekräftat!"
+        counter = 0
+        total = 0
+        localStorage.clear()
     }
 
     //När man stänger modalen
@@ -125,19 +146,8 @@ function renderCartPage() {
         }
     }
 
-    let main = document.getElementById("mainVarukorg")
-
-    if (productsToBuy[0] == undefined) {
-        let emptyCart = document.createElement("h1")
-        emptyCart.className = "product-title"
-        emptyCart.innerText = "Din varukorg är tom!"
-        main.appendChild(emptyCart)
-    }
-
-    if (total == 0) {
-        document.getElementById("varukorgTotal").innerHTML = ""
-    }
-
+    //Skriver ut produkterna i varukorgen
+    //Loopas för varje element i productsToBuy-arrayen
     productsToBuy.forEach((product, index) => {
 
         let flexItem = document.createElement("div")
@@ -171,13 +181,21 @@ function renderCartPage() {
 
     })
 
+    //Räknar ut totalpriset och skriver ut det
+    //Loopas för varje element i productsToBuy-arrayen
     for (i = 0; i < productsToBuy.length; i++) {
         total = total + productsToBuy[i].price
         document.getElementById("varukorgTotal").innerHTML = `<h5>Totalt pris: ${total} kr</h5>`
     }
-    
+
+    //Om totalsumman är noll skrivs totalpriset ej ut
+    if (total == 0) {
+        document.getElementById("varukorgTotal").innerHTML = ""
+    }
 }
 
+//Funktion som kallas när man klickar på "ta bort"-knapp i varukorgen
+//Använder index från elementet i arrayn för att veta vilken produkt som tas bort
 function RemoveFromCart(indexToRemove) {
     counter--
     if (counter != 0) {
