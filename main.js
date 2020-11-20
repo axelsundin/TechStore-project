@@ -72,9 +72,9 @@ function renderStartPage() {
         let addButton = document.createElement("button")
         addButton.className = "btn-add-to-cart"
         let addToCartIcon = document.createElement("i")
-        addToCartIcon.className = "fas fa-cart-arrow-down"
+        addToCartIcon.className = "fas fa-cart-arrow-down "
         let addButtonText = document.createElement("p")
-        addButtonText.innerHTML = "Lägg till i kundvagnen"
+        addButtonText.innerHTML = " Lägg till i kundvagnen"
         addButton.append(addToCartIcon, addButtonText)
         addButton.addEventListener("click", () => {
             addToCart(index)
