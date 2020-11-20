@@ -5,16 +5,6 @@
 }
 
 @media screen and (max-width: 800px) {
-
-    /* .product-image {
-        height: 60%;
-        max-height: 400px;
-    } */
-
-    /* .flexItem {
-        width: 40%;
-    } */
-
     .product-card {
         width: 100vw;
         padding: 10% 0;

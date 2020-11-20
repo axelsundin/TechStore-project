@@ -8,14 +8,6 @@ a:visited {
     color: #ffffff;
 }
 
-/* a:hover {
-    text-decoration: underline;
-}
-
-a:active {
-    text-decoration: underline;
-} */
-
 .header {
     position: fixed;
     display: flex;
@@ -27,7 +19,6 @@ a:active {
     font-family: Trebuchet MS;
    
 }
-
 
 .divLogo {
     display: flex;
@@ -49,11 +40,3 @@ a:active {
     margin-right: 10px;
     size: 4vw;
 }
-
-/* .divMitten {
-    display: flex;
-    float: center;
-    width: 50%;
-    flex-shrink: 4;
-} */
-
