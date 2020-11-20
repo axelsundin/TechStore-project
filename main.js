@@ -57,7 +57,7 @@ function renderStartPage() {
         productTitle.className = "product-title"
         productTitle.innerText = product.title
         
-        let productDescription = document.createElement("p")
+        let productDescription = document.createElement("h3")
         productDescription.className = "product-description"
         productDescription.innerText = product.description
 
@@ -107,8 +107,8 @@ function renderCartPage() {
 
     //Skriver ut "Din varukorg är tom!" om productsToBuy-arrayen är tom
     if (productsToBuy[0] == undefined) {
-        let emptyCart = document.createElement("h1")
-        emptyCart.className = "product-title"
+        let emptyCart = document.createElement("p")
+        emptyCart.className = "cart"
         emptyCart.innerText = "Din varukorg är tom!"
         main.appendChild(emptyCart)
     }

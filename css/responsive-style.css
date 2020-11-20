@@ -1,0 +1,86 @@
+@media screen and (max-width: 1050px) {
+    .divVarukorg {
+        font-size: 150%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+
+    /* .product-image {
+        height: 60%;
+        max-height: 400px;
+    } */
+
+    /* .flexItem {
+        width: 40%;
+    } */
+
+    .product-card {
+        width: 100vw;
+        padding: 10% 0;
+        font-size:  350%;
+    }
+
+    .btn-add-to-cart{
+        width: 45%;
+        height: 5%;
+    }
+
+    #mainVarukorg {
+        width: 80%;
+    }
+
+    .header {
+        font-size: 120%;
+    }
+
+    #buttonKop {
+        width: 55%;
+    }
+
+    .cart {
+        font-size: 40%;
+    }
+
+    .kundvagnH4 {
+        font-size: 120%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+
+    .divVarukorg {
+        font-size: 180%;
+    }
+
+    .product-card {
+        width: 90vw;
+        padding: 20% 0;
+        font-size:  200%;
+    }
+
+    .header {
+        padding: 0 7vw;
+        font-size: 90%;
+    }
+
+    .cart {
+        font-size: 60%;
+    }
+
+    #mainVarukorg {
+        width: 100%;
+    }
+
+    #buttonKop {
+        width: 55%;
+    }
+
+    .btn-add-to-cart{
+        width: 60%;
+    }
+
+    .checkout-content {
+        height: 10%;
+    }
+}

@@ -8,29 +8,20 @@ a:visited {
     color: #ffffff;
 }
 
-a:hover {
+/* a:hover {
     text-decoration: underline;
 }
 
 a:active {
     text-decoration: underline;
-}
-
-@media screen and (max-width:800px) {
-    min-height: 40px;
-}
-
-@media screen and (max-width:570px) {
-    margin-top: 80px;
-}
+} */
 
 .header {
     position: fixed;
     display: flex;
-    height: 60px;
+    height: 10vh;
     width: 100vw;
-    padding-left: 20px;
-    padding-right: 40px;
+    padding: 0 3vw;
     background-color: #212121;
     color: #ffffff;
     font-family: Trebuchet MS;
@@ -42,17 +33,16 @@ a:active {
     display: flex;
     justify-content: left;
     align-items: center;
-    width: 25%;
+    width: 50%;
 }
 
 .divVarukorg {
     display: flex;
     align-items: center;
-    width: 25%;
+    width: 50%;
     justify-content: flex-end;
-    font-size: 70%;
     flex-shrink: 1;
-
+    font-size: 150%;
 }
 
 .divVarukorg #counter {
@@ -60,9 +50,10 @@ a:active {
     size: 4vw;
 }
 
-.divMitten {
+/* .divMitten {
     display: flex;
     float: center;
     width: 50%;
     flex-shrink: 4;
-}
+} */
+
