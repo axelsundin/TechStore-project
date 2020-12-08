@@ -1,4 +1,4 @@
-//Variabel som håller JSON-datan
+//Variabel som håller JSON-datan *S
 let productData
 
 //Array som lagrar produkter som lagts till i varukorgen. Hämtar värde från localstorage om det finns
@@ -19,7 +19,7 @@ if (counter != 0) {
 //variabel för totalvärdet i varugkorgen
 let total = 0
 
-//Hämtar JSON-datan och lagrar den i variabeln productData
+//Hämtar JSON-datan och lagrar den i variabeln productData *S
 fetch("./products.json")
 .then(response => {
    return response.json();
@@ -27,7 +27,7 @@ fetch("./products.json")
 .then(data => {
     productData = data
     
-    //Ritar ut huvudsidan eller varukorgen beroende på om man står på huvudsidan eller varukorgen 
+    //Ritar ut huvudsidan eller varukorgen beroende på om man står på huvudsidan eller varukorgen *S
     if (document.getElementById("main") === null){
         renderCartPage()
     } else {
@@ -35,7 +35,7 @@ fetch("./products.json")
     }   
 })
 
-//Funktion som ritar ut vad som visas på huvudsidan
+//Funktion som ritar ut vad som visas på huvudsidan *S
 function renderStartPage() {
 
     //Variabel för main-diven på huvudsidan
