@@ -3,7 +3,10 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Trebuchet MS, Arial, sans-serif;
+    font-size: calc(1em + 1vw);
 }
+
+
 
 a:link {
     text-decoration: none;
@@ -14,6 +17,7 @@ a:visited {
     text-decoration: none;
     color: #ffffff;
 }
+
 
 .header {
     position: fixed;
@@ -34,8 +38,10 @@ a:visited {
     align-items: center;
     width: 50%;
     flex-wrap: wrap;
-    flex-grow: 2;
-    flex-shrink: 1; 
+     /* tillägg flex-grow o flex-shrink */
+    flex-grow: 1;
+    flex-shrink: 1;
+    font-size: 14%;
 }
 
 .divVarukorg {
@@ -45,10 +51,12 @@ a:visited {
     justify-content: flex-end;
     /*tillägg min-width, flex-wrap, flex-grow, flex-shrink */
     flex-wrap: wrap;
-    flex-grow: 2;
-    flex-shrink: 2;
+     /* tillägg flex-grow o flex-shrink */
+    flex-grow: 1;
+    flex-shrink: 1;
     /* font-size: 150%; */
-    font-size: 120%;
+    font-size: 6%;
+    
 
 /* .divVarukorg #counter { */
     /* margin-right: 10px; */
