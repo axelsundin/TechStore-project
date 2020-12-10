@@ -20,7 +20,8 @@ a:visited {
     display: flex;
     height: 6vh;
     width: 100vw;
-    padding: 0 3vw;
+    /* padding: 0 3vw; */
+    padding: 0 3%;
     background-color: #212121;
     color: #ffffff;
     font-family: Trebuchet MS;
@@ -29,21 +30,27 @@ a:visited {
 
 .divLogo {
     display: flex;
-    justify-content: left;
+    /* justify-content: left; */
     align-items: center;
     width: 50%;
+    flex-wrap: wrap;
+    flex-grow: 2;
+    flex-shrink: 1; 
 }
 
 .divVarukorg {
     display: flex;
     align-items: center;
-    width: 50%;
+    /* width: 50%; */
     justify-content: flex-end;
-    flex-shrink: 1;
-    font-size: 150%;
-}
+    /*tillägg min-width, flex-wrap, flex-grow, flex-shrink */
+    flex-wrap: wrap;
+    flex-grow: 2;
+    flex-shrink: 2;
+    /* font-size: 150%; */
+    font-size: 120%;
 
-.divVarukorg #counter {
-    margin-right: 10px;
-    size: 4vw;
+/* .divVarukorg #counter { */
+    /* margin-right: 10px; */
+    /* size: 4vw; */
 }

@@ -42,11 +42,10 @@
     font-size: 50%;
 }
 
-.kundvagnH4 {
+.kundvagnH3 {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 28px;
     margin-bottom: 10px;
 }
 
