@@ -62,7 +62,7 @@ function renderStartPage() {
         
         /* let descrDiv = document.createElement("div")
         descrDiv.className = "descr-div" */
-        let productDescription = document.createElement("h3")
+        let productDescription = document.createElement("h2")
         productDescription.className = "product-description"
         productDescription.innerText = product.description
         /* descrDiv.append(productDescription) */
@@ -87,7 +87,7 @@ function renderStartPage() {
         addButton.className = "btn-add-to-cart"
         let addToCartIcon = document.createElement("i")
         addToCartIcon.className = "fas fa-cart-arrow-down"
-        let addButtonText = document.createElement("p")
+        let addButtonText = document.createElement("h2")
         addButtonText.innerHTML = "Lägg till i kundvagnen"
         addButton.append(addToCartIcon, addButtonText)
         addButton.addEventListener("click", () => {
@@ -194,7 +194,7 @@ function renderCartPage() {
         let deleteButton = document.createElement("button")
         deleteButton.className = "buttonDelete"
         let trashIcon = document.createElement("i")
-        trashIcon.className = "far fa-trash-alt fa-sm"
+        trashIcon.className = "far fa-trash-alt fa-me"
         let deleteButtonText = document.createElement("p")
         deleteButtonText.innerHTML = "Ta Bort"
         deleteButton.append(trashIcon, deleteButtonText)

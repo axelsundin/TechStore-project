@@ -6,15 +6,15 @@
 }
 
 #main {
-    padding-top: 10vh;
+    padding-top: 8vh;
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     min-width: 30vw;
 }
 
 .product-container {
-    width: 100vw;
-    height: 90vh;
+    width: 100%;
+    height: 100%;
     display: flex;
     /* position: relative; */
     justify-content: center;
@@ -26,13 +26,13 @@
 
 .product-card {
     /* width: 34vw; */
-    width: 60%;
+    width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 5% 0;
+    padding: 8vh 0;
     /* font-size: 30px; */
     font-size: 40%;
 }
@@ -46,7 +46,7 @@
 }
 
 .product-description {
-    font-size: 50%;
+    font-size: 49%;
     /* tillägg flex-grow o flex-shrink */
     flex-grow: 1;
     flex-shrink: 1;
@@ -55,7 +55,7 @@
 
 .product-image {
     /* height: 60%; 50vh*/
-    height: 80%;
+    height: 70%;
     width: auto;
     /*max-height: 320px; */
     
@@ -66,7 +66,7 @@
 }
 
 .product-price {
-    font-size: 50%;
+    font-size: 70%;
      /* tillägg flex-grow o flex-shrink */
      flex-grow: 1;
      flex-shrink: 1;
@@ -77,18 +77,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    justify-content: space-evenly;
 
     /* height: 32px; */
     height: auto;
     /* width: auto; */
-    width: 30%;
+    
     background-color: #5596F5;
     color: #ffffff;
-    font-size: 6%;
+    font-size: 20%;
+    padding: 1vh 5%;
     border: 1px;
     border-radius: 8px;
-    padding: 0 8px;
      /* tillägg flex-grow o flex-shrink */
      flex-grow: 1;
      flex-shrink: 0;
