@@ -53,36 +53,22 @@ function renderStartPage() {
         productCard.className = "product-card"
         productContainer.appendChild(productCard)
 
-        /* let titleDiv = document.createElement("div")
-        titleDiv.className = "title-div" */
         let productTitle = document.createElement("h1")
         productTitle.className = "product-title"
         productTitle.innerText = product.title
-        /* titleDiv.append(productTitle) */
         
-        /* let descrDiv = document.createElement("div")
-        descrDiv.className = "descr-div" */
         let productDescription = document.createElement("h2")
         productDescription.className = "product-description"
         productDescription.innerText = product.description
-        /* descrDiv.append(productDescription) */
 
-        /* let imgDiv = document.createElement("div")
-        imgDiv.className = "img-div" */
         let productImage = document.createElement("img")
         productImage.className = "product-image"
         productImage.src = "assets/" + product.image
-        /* imgDiv.append(productImage) */
 
-        /* let priceDiv = document.createElement("div")
-        priceDiv.className = "price-div" */
         let productPrice = document.createElement("h2")
         productPrice.className = "product-price"
         productPrice.innerText = product.price + " kr"
-        /* priceDiv.append(productPrice) */
 
-        /* let addButtonDiv = document.createElement("div")
-        addButtonDiv.className = "addButton-div" */
         let addButton = document.createElement("button")
         addButton.className = "btn-add-to-cart"
         let addToCartIcon = document.createElement("i")
@@ -94,9 +80,6 @@ function renderStartPage() {
             addToCart(index)
         })
 
-        /* addButtonDiv.append(addButton) */
-
-        /* productCard.append(titleDiv, descrDiv, imgDiv, priceDiv, addButtonDiv) */
         productCard.append(productTitle, productDescription, productImage, productPrice, addButton)
 
     })

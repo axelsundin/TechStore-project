@@ -16,7 +16,6 @@
     width: 100%;
     height: 100%;
     display: flex;
-    /* position: relative; */
     justify-content: center;
 }
 
@@ -25,7 +24,6 @@
 }
 
 .product-card {
-    /* width: 34vw; */
     width: 100%;
     height: 100%;
     display: flex;
@@ -33,13 +31,11 @@
     align-items: center;
     justify-content: space-between;
     padding: 8vh 0;
-    /* font-size: 30px; */
     font-size: 40%;
 }
 
 
 .product-title {
-    /* font-size: 95%; + tillägg flex-grow o flex-shrink*/
     flex-grow: 2;
     flex-shrink: 2;
 
@@ -47,19 +43,14 @@
 
 .product-description {
     font-size: 49%;
-    /* tillägg flex-grow o flex-shrink */
     flex-grow: 1;
     flex-shrink: 1;
 
 }
 
 .product-image {
-    /* height: 60%; 50vh*/
     height: 70%;
     width: auto;
-    /*max-height: 320px; */
-    
-    /* tillägg flex-grow o flex-shrink */
     flex-grow: 1;
     flex-shrink: 1;
     ;
@@ -67,7 +58,6 @@
 
 .product-price {
     font-size: 70%;
-     /* tillägg flex-grow o flex-shrink */
      flex-grow: 1;
      flex-shrink: 1;
     
@@ -77,18 +67,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
-    /* height: 32px; */
     height: auto;
-    /* width: auto; */
-    
     background-color: #5596F5;
     color: #ffffff;
     font-size: 20%;
     padding: 1vh 5%;
     border: 1px;
     border-radius: 8px;
-     /* tillägg flex-grow o flex-shrink */
      flex-grow: 1;
      flex-shrink: 0;
 }
