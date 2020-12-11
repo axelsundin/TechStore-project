@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Trebuchet MS, Arial, sans-serif;
+    font-size: calc(1em + 1vw);
 }
 
 #content {
@@ -53,6 +54,9 @@
     align-items: center;
     margin-bottom: 10px;
     font-size: 60%;
+    /* tillägg flex-grow o flex-shrink */
+    flex-grow: 8;
+    flex-shrink: 8;
 }
 
 
@@ -106,9 +110,11 @@
 
 .product-price{
     font-size: 40%;
-    /* tillägg flex-grow o flex-shrink */
-    flex-grow: 1;
+    /* tillägg flex-grow o flex-shrink o margin-top + -bottom */
+    flex-grow: 8;
     flex-shrink: 1;
+    margin-top: 4%;
+    margin-bottom: 10%;
     
 }
 
@@ -118,19 +124,23 @@
     align-items: center;
     justify-content: center;
 
-    height: 25px;
-    width: 80px;
+    /* NYTT height: 25px; */
+    
+    /* NYTT width: 80px; */
+    width: 100%;
     background-color: #E64E4E;
     border-color: #E64E4E;
     color: #ffffff;
-    border-radius: 8px;
-    font-size: 2%;
-    padding: 1px;
-    margin-top: 14px;
-    /* tillägg flex-grow o flex-shrink */
-    flex-grow: 1;
-    flex-shrink: 1;
-    min-width: 80%;
+    border-radius: 8px;     
+    font-size: 1%;
+    /* NYTT padding: 1px; */
+    padding: 1%;
+    /* margin-top: 14px; */
+    
+    /* tillägg flex-shrink */
+    /* NYTT flex-shrink: 1; */
+    flex-shrink: 8;
+    min-width: 40%;
     max-width: 200%;
 }
 

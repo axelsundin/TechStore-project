@@ -41,7 +41,8 @@ a:visited {
      /* tillägg flex-grow o flex-shrink */
     flex-grow: 1;
     flex-shrink: 1;
-    font-size: 14%;
+    /* font-size: 14%; */
+    font-size: 12%;
 }
 
 .divVarukorg {
